@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if articles %}
+<h3>Makaleler</h3>
+<hr>
+<form action="/search" method="POST" class="form-inline md-form mr-auto mb-4">
+    <input class="form-control mr-sm-2" name="keyword" type="text" placeholder="Ara..." aria-label="Ara...">
+    <button class="btn aqua-gradient btn-rounded" type="submit">Ara</button>
+</form>
+<div class="list-group">
+    {% for article in articles %}
+    <a href="/article/{{article.id}}" class="list-group-item">{{article.title}}</a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endblock body %}
